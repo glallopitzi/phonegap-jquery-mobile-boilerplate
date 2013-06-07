@@ -28,8 +28,9 @@ var app = {
 
 $(document).ready(function(){
 	
-	$('#searchForm').submit(function(){
-		
+	$('#searchFormSubmit').click(function(){
+		console.log("submitted");
+		$('#searchForm').submit();
 	});
 	
 });

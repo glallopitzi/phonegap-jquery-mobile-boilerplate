@@ -1,4 +1,8 @@
 var app = {
+		
+		
+		baseWebsiteRestUrl : 'http://it.jobrapido.com/fo/api/v1/search/',
+		
 		initialize : function(){
 
 			console.log("begin");
@@ -21,3 +25,11 @@ var app = {
 			xhr.send();
 		}
 };
+
+$(document).ready(function(){
+	
+	$('#searchForm').submit(function(){
+		
+	});
+	
+});

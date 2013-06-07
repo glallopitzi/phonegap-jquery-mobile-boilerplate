@@ -4,8 +4,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>PhonegapApp</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>
+
 		<link rel="stylesheet" type="text/css" href="jquery/css/jquery.mobile-1.3.1.css"/>
+		
+		<script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>
 		<script type="text/javascript" charset="utf-8" src="jquery/jquery-1.9.1.js"></script>
 		<script type="text/javascript" charset="utf-8" src="jquery/jquery.mobile-1.3.1.js"></script>
 		
@@ -37,31 +39,48 @@
 	</head>
 	<body>
 		<!---------------------------------- Main Page --------------------------------------->
-		<div data-role="page" id="main">
+		<div data-role="page" data-theme="a" id="home">
 			<div data-role="header">
-				<h1>PhoneGap Demo</h1>
+				<h1>Jobrapido</h1>
 			</div>
 			<div data-role="content">
-				Hello, this is JQuery Mobile running in PhoneGap 2
-				<a href="#result" class="ui-btn-active">go to result</a>
+				<form id="searchForm">
+					
+					<div data-role="fieldcontain" class="ui-hide-label">
+						<label for="what">Cosa:</label>
+						<input type="text" name="what" id="what" value="" placeholder="Cosa" data-mini="true"/>
+					</div>
+					
+					<div data-role="fieldcontain" class="ui-hide-label">
+						<label for="where">Dove:</label>
+						<input type="text" name="where" id="where" value="" placeholder="Dove" data-mini="true"/>
+					</div>
+					
+					<input type="submit" value="Cerca" />
+					
+				</form>
+				<a href="#result">go to result</a>
 			</div>
 			<div data-role="footer">
 				footer goes here
 			</div>
 		</div>
 		
-		<!---------------------------------- Main Page --------------------------------------->
-		<div data-role="page" id="result" data-add-back-btn="true">
+		<!---------------------------------- Result Page --------------------------------------->
+		<div data-role="page" data-theme="a" id="result" data-add-back-btn="true">
 			<div data-role="header">
 				<h1>PhoneGap Demo result page</h1>
 			</div>
 			<div data-role="content">
 				this is the result page yeah!
-				<div id="allRepos"></div>
 			</div>
 			<div data-role="footer">
 				footer goes here
 			</div>
+		</div>
+		
+	</body>
+</html>
 		</div>
 		
 	</body>

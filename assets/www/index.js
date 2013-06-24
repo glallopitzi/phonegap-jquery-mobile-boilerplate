@@ -1,5 +1,4 @@
 var DEBUG = false;
-var dataAux;
 
 var app = {
 		
@@ -63,7 +62,6 @@ var app = {
 				dataType: 'jsonp',
 			}).done( function( data ) {
 				console.log('data: ' + data, data);
-				dataAux = data;
 				app.showResult(data);
 			});
 		}
@@ -104,15 +102,9 @@ if (! DEBUG){
 
 
 $(document).ready( function() {
-	console.log("document ready");
-	
 	$('#searchFormSubmit').click( function( e ) {
-		
 		app.theWhat = $('#what').val() !== '' ? $('#what').val() : '_empty';
 		app.theWhere = $('#where').val() !== '' ? $('#where').val() : '_empty';
 		app.makeSearch();
-
-		//e.preventDefault();
 	});
-	
 });

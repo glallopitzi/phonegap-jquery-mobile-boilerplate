@@ -76,7 +76,7 @@ var app = {
 
 
 
-if (! DEBUG){
+if (! DEBUG) {
 	//*********************************************************
 	// Wait for Cordova to Load
 	//*********************************************************
@@ -96,7 +96,7 @@ if (! DEBUG){
 	$.when(deviceReadyDeferred, jqmReadyDeferred).then(doWhenBothFrameworksLoaded);
 
 	function doWhenBothFrameworksLoaded() {
-	  app.initialize();
+		// FIXME initialization
 	}
 
 
@@ -107,6 +107,7 @@ if (! DEBUG){
 }
 
 $(document).ready( function() {
+	$.mobile.changePage($("#home"));
 	$('#searchFormSubmit').click( function( e ) {
 		app.theWhat = $('#what').val() !== '' ? $('#what').val() : '_empty';
 		app.theWhere = $('#where').val() !== '' ? $('#where').val() : '_empty';

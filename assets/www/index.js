@@ -50,12 +50,18 @@ var app = {
 			});
 			
 			advertsContainer.append(advertsList);
-			
+			//$("#allRepos ul").listview();
 			$.mobile.changePage($("#result"));
+		},
+		
+		cleanPreviousSearchResults : function(){
+			$("#allRepos").children().remove();
 		},
 		
 		makeSearch : function(){
 			app.log( "makeSearch" );
+			this.cleanPreviousSearchResults();
+			
 			var _url = this.buildRequestUrl();
 			$.ajax({
 				url : _url,

@@ -47,8 +47,16 @@
 					
 				</form>
 			</div>
-			<div data-role="footer">
-			</div>
+
+			<div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home">Search</a></li>
+						<li><a href="#result">Results</a></li>
+						<li><a href="#savedJobs">Saved Jobs</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
 		</div>
 		
 		<!-- -------------------------------- Result Page ------------------------------------- -->
@@ -59,8 +67,36 @@
 			<div data-role="content">
 				<div id="allRepos"></div>
 			</div>
-			<div data-role="footer">
+			
+			<div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home">Search</a></li>
+						<li><a href="#result">Results</a></li>
+						<li><a href="#savedJobs">Saved Jobs</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+		</div>
+		
+		<!-- -------------------------------- Saved Jobs Page ------------------------------------- -->
+		<div data-role="page" data-theme="a" id="savedJobs" data-add-back-btn="true">
+			<div data-role="header">
+				<h1>Job search saved jobs</h1>
 			</div>
+			<div data-role="content">
+				<div id="allSavedJobs"></div>
+			</div>
+			
+			<div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home">Search</a></li>
+						<li><a href="#result">Results</a></li>
+						<li><a href="#savedJobs">Saved Jobs</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
 		</div>
 		
 	</body>

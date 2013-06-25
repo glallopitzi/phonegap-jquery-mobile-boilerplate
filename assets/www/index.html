@@ -25,6 +25,15 @@
 				<form id="searchForm">
 					
 					<div data-role="fieldcontain" class="ui-hide-label">
+						<select name="country" id="country" data-native-menu="false">
+							<option value="it">Italia</option>
+							<option value="uk">United Kingdom</option>
+							<option value="us">United States</option>
+							<option value="de">Deutchland</option>
+						</select>
+					</div>
+					
+					<div data-role="fieldcontain" class="ui-hide-label">
 						<label for="what">Cosa:</label>
 						<input type="text" name="what" id="what" value="" placeholder="Cosa" data-mini="true"/>
 					</div>
@@ -45,7 +54,7 @@
 		<!-- -------------------------------- Result Page ------------------------------------- -->
 		<div data-role="page" data-theme="a" id="result" data-add-back-btn="true">
 			<div data-role="header">
-				<h1>PhoneGap Demo result page</h1>
+				<h1>Job search result page</h1>
 			</div>
 			<div data-role="content">
 				<div id="allRepos"></div>

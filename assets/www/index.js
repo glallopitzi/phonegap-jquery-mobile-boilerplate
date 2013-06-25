@@ -50,12 +50,12 @@ var app = {
 			});
 			
 			advertsContainer.append(advertsList);
-			$.mobile.navigate("#result");
+			
+			$.mobile.changePage($("#result"));
 		},
 		
 		makeSearch : function(){
 			app.log( "makeSearch" );
-			
 			var _url = this.buildRequestUrl();
 			$.ajax({
 				url : _url,
@@ -84,7 +84,7 @@ if (! DEBUG){
 	}
 
 	$(document).on("mobileinit", function () {
-	  jqmReadyDeferred.resolve();
+		jqmReadyDeferred.resolve();
 	});
 
 	$.when(deviceReadyDeferred, jqmReadyDeferred).then(doWhenBothFrameworksLoaded);
@@ -100,11 +100,11 @@ if (! DEBUG){
 	app.initialize();
 }
 
-
 $(document).ready( function() {
 	$('#searchFormSubmit').click( function( e ) {
 		app.theWhat = $('#what').val() !== '' ? $('#what').val() : '_empty';
 		app.theWhere = $('#where').val() !== '' ? $('#where').val() : '_empty';
+		app.theCountry = $('#country').val() !== '' ? $('#country').val() : 'it';
 		app.makeSearch();
 	});
 });

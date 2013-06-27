@@ -70,6 +70,31 @@ var app = {
 				console.log('data: ' + data, data);
 				app.showResult(data);
 			});
+		},
+		
+		getAllCountries : function(){
+			return {
+				'countries' : [
+				               { 'countryCode' : 'de', 'countryLabel' : 'Deutsch' },
+				               { 'countryCode' : 'it', 'countryLabel' : 'Italia' },
+				               { 'countryCode' : 'uk', 'countryLabel' : 'United Kingdom' },
+				               { 'countryCode' : 'us', 'countryLabel' : 'United States' }
+				]
+			}
+		},
+		
+		getCountriesSelectOptions : function (){
+			var html = "";
+			var allCountries = this.getAllCountries();
+			for ( var int = 0; int < allCountries.countries.length; int++) {
+				var currentCountry = allCountries.countries[int];
+				if ( app.theCountry === currentCountry.countryCode ){
+					html += "<option value=\"" + currentCountry.countryCode + "\" selected>" + currentCountry.countryLabel + "</option>";
+				} else {
+					html += "<option value=\"" + currentCountry.countryCode + "\">" + currentCountry.countryLabel + "</option>";
+				}
+			}
+			return html;
 		}
 
 };
@@ -113,4 +138,7 @@ $(document).ready( function() {
 		app.theCountry = $('#country').val() !== '' ? $('#country').val() : 'it';
 		app.makeSearch();
 	});
+	
+	$('#country').append( app.getCountriesSelectOptions() );
+	$('#country').selectmenu("refresh");
 });

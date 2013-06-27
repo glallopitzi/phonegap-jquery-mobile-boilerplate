@@ -50,7 +50,13 @@ var app = {
 			});
 			
 			advertsContainer.append(advertsList);
-			//$("#allRepos ul").listview();
+			
+			if ( $('#allRepos ul').hasClass('ui-listview')) {
+			    $('#allRepos ul').listview('refresh');
+			     } 
+			else {
+			    $('#allRepos ul').trigger('create');
+			     }
 			$.mobile.changePage($("#result"));
 		},
 		
@@ -142,3 +148,4 @@ $(document).ready( function() {
 	$('#country').append( app.getCountriesSelectOptions() );
 	$('#country').selectmenu("refresh");
 });
+

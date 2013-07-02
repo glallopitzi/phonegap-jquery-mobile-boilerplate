@@ -42,7 +42,7 @@ var app = {
 		},
 		
 		showResult : function ( data ){
-			var advertsContainer = $("#allRepos");
+			var advertsContainer = $("#result-container");
 			var advertsList = $("<ul data-role=\"listview\"></ul>");
 			
 			$.each( data.searchResults.results, function(i, item){
@@ -51,17 +51,17 @@ var app = {
 			
 			advertsContainer.append(advertsList);
 			
-			if ( $('#allRepos ul').hasClass('ui-listview')) {
-			    $('#allRepos ul').listview('refresh');
+			if ( $('#result-container ul').hasClass('ui-listview')) {
+			    $('#result-container ul').listview('refresh');
 			     } 
 			else {
-			    $('#allRepos ul').trigger('create');
+			    $('#result-container ul').trigger('create');
 			     }
 			$.mobile.changePage($("#result"));
 		},
 		
 		cleanPreviousSearchResults : function(){
-			$("#allRepos").children().remove();
+			$("#result-container").children().remove();
 		},
 		
 		makeSearch : function(){

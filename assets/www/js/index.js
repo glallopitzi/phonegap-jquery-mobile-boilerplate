@@ -43,20 +43,33 @@ var app = {
 		
 		showResult : function ( data ){
 			var advertsContainer = $("#allRepos");
-			var advertsList = $("<ul data-role=\"listview\"></ul>");
 			
-			$.each( data.searchResults.results, function(i, item){
-				advertsList.append("<li><a href=\"" + item.url + "\">" + item.title + "</a></li>");
-			});
+			if (data.searchResults.error === 'Unknown location'){
+				/*
+				 * <div class="alert alert-block">
+					  <button type="button" class="close" data-dismiss="alert">&times;</button>
+					  <h4>Warning!</h4>
+					  Best check yo self, you're not...
+					</div>
+*/
+				advertsContainer.append("<div class=\"alert alert-block\">Unknown location</div>");
+			} else {
+				var advertsList = $("<ul data-role=\"listview\"></ul>");
+				
+				$.each( data.searchResults.results, function(i, item){
+					advertsList.append("<li><a href=\"" + item.url + "\">" + item.title + "</a></li>");
+				});
+				
+				advertsContainer.append(advertsList);
+				
+				if ( $('#allRepos ul').hasClass('ui-listview')) {
+					$('#allRepos ul').listview('refresh');
+				
+				} else {
+				    $('#allRepos ul').trigger('create');
+				}
+			}
 			
-			advertsContainer.append(advertsList);
-			
-			if ( $('#allRepos ul').hasClass('ui-listview')) {
-			    $('#allRepos ul').listview('refresh');
-			     } 
-			else {
-			    $('#allRepos ul').trigger('create');
-			     }
 			$.mobile.changePage($("#result"));
 		},
 		
